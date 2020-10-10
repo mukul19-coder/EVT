@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>Sign UP</title>
+		<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
+		<style>
+			.bg
+			{
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.bg1
+			{
+				background-image: url("{% static 'images/bg-2.jpg' %}");
+				min-height: 600px;
+				background-size: cover;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.i1
+			{
+				text-align: center;
+				border: 2px solid #D6D0D0;
+				color: #D6D0D0;
+				font-size: 20px;
+				width: 200px;
+				height: 100px;
+				margin: auto;
+				padding: auto;
+			}
+
+			.i2
+			{
+				text-align: center;
+				font-size: 500%;
+				font-family: Impact, sans-serif;
+				background-color: rgba(214, 208, 208, 0.5);
+				width: 400px;
+				color: #ffffff;
+				margin: auto;	
+				margin-top: 70px;
+				border-radius: 150px 0px;
+			}			
+
+			.a1:active, .a1:hover, .a1:visited, .a1:link {
+				color: #D6D0D0;
+				text-decoration: none;
+			}
+
+			.i3
+			{
+				text-align: center;
+			}
+
+			.i4
+			{
+				padding: 0px;
+				margin: 0px;
+				margin-left: 20px;
+				line-height: 1.6;
+			}
+
+			.i5
+			{
+				color: #D6D0D0;
+			}
+
+      .i6
+      {
+        background-color: #222121;
+        height: auto;
+        margin: auto;
+        padding: auto;
+        text-align: left;
+        padding: 30px;
+        width: auto;
+      }
+   
+			.b1
+			{
+				background-color: #2A2828;
+				color: #ffffff;
+				align-items: center;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				border-width: 0px;
+				border-radius: 50%;
+				padding: 14px;
+			}
+
+			.b1:hover, .b1:active, .b1:visited
+			{
+				background-color: rgba(255, 255, 255,0.4);
+				color: #ffffff;
+			}
+
+			.hr
+			{
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+				border-width: 2px;
+				border-color: #353434;
+			}
+
+			.topnav
+			{
+  				overflow: hidden;
+  				background-color: #333;
+			}
+
+			.topnav a 
+			{
+ 				float: left;
+ 				color: #fff;
+  			text-align: center;
+ 				padding: 14px 16px;
+ 				text-decoration: none;
+ 				font-size: 17px;
+			}
+
+			.topnav #myMenu 
+			{
+				display: none;
+			}
+
+			.topnav a:hover 
+			{
+  				background-color: #d2d2d2;
+  				color: black;
+			}
+
+			.topnav a.active 
+			{
+  				background-color: #E87218;
+  				color: white;
+  				text-align: right;
+			}
+
+      .tooltip 
+      {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+      }
+
+      .tooltip .tooltiptext 
+      {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+  
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 50%;
+        margin-left: -60px;
+      }
+
+      .tooltip:hover .tooltiptext 
+      {
+        visibility: visible;
+      }
+
+		</style>
+	</head>
+	<body class= "bg">
+		
+		<div class="topnav">
+			<abbr title="Click"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
+			<div id="myMenu">
+    			<a href="{% url 'signup' %}">Sign Up</a>
+  				<a href="{% url 'signin' %}">Sign In</a>
+ 			</div>
+		</div>
+
+		<div class="bg1">
+			<div>
+				<br><br><br><br>
+        <a href="{% url 'home' %}" class="a1">
+				<section class= "i1">
+					<pre><b><span>EVT</span><br><span>ElasticVelcroThread</span></b></pre><br>
+				</section>
+        </a>
+			</div>
+
+			<div class="i2">SIGN UP</div>
+		</div>
+		<br>
+		<div class="w3-center">
+			<a href="{% url 'elastic' %}"><abbr title="ELASTIC"><button class="b1">E</button></abbr></a>
+			&nbsp;
+			<a href="{% url 'velcro' %}"><abbr title="VELCRO"><button class="b1">V</button></abbr></a>
+			&nbsp;
+			<a href="{% url 'thread' %}"><abbr title="THREAD"><button class="b1">T</button></abbr></a>
+		</div>
+		<br>
+		<hr class="hr" style="text-align: center;">
+		<br><br>
+		<div>
+        <form action="" method="post">
+          {% csrf_token %}
+        <table align="center" class="i6">
+        	<tr>
+        		<th colspan="4" style="text-align: center;">
+        			New Customer?
+        		</th>
+        	</tr>
+        	<tr></tr>
+          <tr>
+            <td>
+              <label for="fname">First Name:</label>
+            </td>
+            <td>
+              <input type="text" name="fname">&nbsp;
+            </td>
+            <td>
+              <label for="lname">Last Name:</label>
+            </td>
+            <td>
+              <input type="text" name="lname">
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td>
+              <label for="oname">Organization Name:</label>
+            </td>
+            <td>
+              <input type="text" name="oname" required="required">
+            </td>
+            <td>
+              <label for="number">Phone Number:</label>
+            </td>
+            <td>
+              <input type="text" name="number" placeholder="88XXXXXXX4" pattern="[0-9]{10}" required>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="address">Address:</label>
+            </td>
+            <td colspan="3">
+              <input type="text" name="address" size="54">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="email">Email ID:</label>
+            </td>
+            <td>
+              <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="abc1233@abc.com" title="Please enter a valid Email address" name="email" required="required">&nbsp;
+            </td>
+            <td>
+              <label for="passwords">Password:</label>
+            </td>
+            <td>
+              <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 and at most 20" name="password" required="required">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" rowspan="2" style="text-align: center;"><br>
+              <input type="submit" style="box-shadow: 0 4px 8px 0 rgba(79, 75, 75, 0.6), 0 6px 20px 0 rgba(79, 75, 75, 0.19);">
+            </td>
+          </tr>
+        </table>
+        </form>
+
+        <p align="center"><span>Already a Member?</span>&nbsp;<a href="{% url 'signin' %}">Sign IN</a></p>
+    </div>	
+		
+		<br><br>
+		<hr class="hr" style="text-align: center;">
+
+		<section class="i3">
+			<span>Elastic. Velcro. Thread.</span><br>
+			<abbr title="MASTERCARD"><i class="fab fa-cc-mastercard"></i></abbr>
+			<abbr title="VISA"><i class="fab fa-cc-visa"></i></abbr>
+			<abbr title="PAYPAL"><i class="fab fa-paypal"></i></abbr>
+			<abbr title="COD"><i class="fas fa-money-bill-wave"></i></abbr>
+		</section>
+
+		<script type="text/javascript">
+			function expand() 
+			{
+  				var x = document.getElementById("myMenu");
+  				if (x.style.display === "block") 
+  				{
+  					x.style.display = "none";
+				}
+				else 
+				{
+    				x.style.display = "block";
+  				}
+			}
+		</script>
+	</body>
+</html>
