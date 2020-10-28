@@ -216,7 +216,7 @@
 	<body class= "bg">
 
 		<div class="topnav">
-			<abbr title="Click"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
+			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
 			<div id="myMenu">
     			<a href="{% url 'signup' %}">Sign Up</a>
   				<a href="{% url 'signin' %}">Sign In</a>
@@ -252,14 +252,13 @@
  			{% csrf_token %}
         <table align="center" class="i6">
           <tr>
-            <td>
+            <td rowspan="2">
               <label for="email">Email ID:</label>
             </td>
-            <td>
+            <td rowspan="2">
               <input type="text" name="email" autofocus="autofocus">&nbsp;
             </td>
           </tr>
-          <tr></tr>
           <tr></tr>
           <tr>
             <td>
@@ -268,6 +267,15 @@
             <td>
               <input type="text" name="password">
             </td>
+          </tr>
+          <tr>
+          	<td colspan="4">
+          	<div>
+          		{% for message in messages %}
+          		<h4 style="color: red; text-align: center;"><b> *{{message}}* </b></h4>
+          		{% endfor %}
+          	</div>
+          	</td>
           </tr>
           <tr>
             <td colspan="4" rowspan="2" style="text-align: center;"><br>

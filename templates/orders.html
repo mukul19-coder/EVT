@@ -5,11 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<title>Elastic</title>
+		<title>EVT - ELASTIC, VELCRO, THREAD</title>
 		<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
-		<link rel="stylesheet" href="{% static 'style.css' %}">
 		<style>
 			.bg
 			{
@@ -19,7 +17,7 @@
 
 			.bg1
 			{
-				background-image: url("{% static 'images/elastic.jpg' %}");
+				background-image: url("{% static 'images/bg-2.jpg' %}");
 				min-height: 600px;
 				background-size: cover;
 				background-attachment: fixed;
@@ -45,13 +43,13 @@
 				text-align: center;
 				font-size: 500%;
 				font-family: Impact, sans-serif;
-				background-color: rgba(62, 61, 61, 0.5);
-				width: 500px;
+				background-color: rgba(214, 208, 208, 0.5);
+				width: 420px;
 				color: #ffffff;
 				margin: auto;	
 				margin-top: 70px;
 				border-radius: 150px 0px;
-			}			
+			}	
 
 			.a1:active, .a1:hover, .a1:visited, .a1:link {
 				color: #D6D0D0;
@@ -95,16 +93,11 @@
   				background-color: #333;
 			}
 
-			.topnav #myMenu 
-			{
-				display: none;
-			}
-
 			.topnav a 
 			{
  				float: left;
  				color: #fff;
-  				text-align: center;
+  			text-align: center;
  				padding: 14px 16px;
  				text-decoration: none;
  				font-size: 17px;
@@ -123,32 +116,17 @@
   				text-align: right;
 			}
 
+			.topnav #myMenu 
+			{
+				display: none;
+			}
+
 			.b1:disabled
 			{
 				color: #656565;
 				background-color: #2A2828;
 			}
 
-			.row 
-			{
-  				display: -ms-flexbox; /* IE 10 */
-  				display: flex;
- 				-ms-flex-wrap: wrap; /* IE 10 */
-  				flex-wrap: wrap;
-  				padding: 0 4px;
-			}
-
-			.k1:hover
-			{
-				box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
-			}
-
-			.k1
-			{
-				text-align: center;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-			}
-			
 			.i4
 			{
 				padding: 0px;
@@ -162,71 +140,74 @@
 				color: #D6D0D0;
 			}
 
-    .i6
-      {
-        background-color: #222121;
-        height: auto;
-        margin: auto;
-        padding: auto;
-        text-align: left;
-        padding: 30px;
-        width: auto;
-      }
-	  
-	.tooltip 
-      {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-      }
+    		table.darkTable 
+    		{
+  				font-family: "Arial Black", Gadget, sans-serif;
+  				border: 0px solid;
+  				background-color: #222121;
+  				width: 60%;
+  				height: auto;
+  				text-align: center;
+  				border-collapse: collapse;
+			}
+			table.darkTable td, table.darkTable th 
+			{
+				border: 0px solid #4A4A4A;
+				padding: 3px 5px;
+			}
+			table.darkTable tbody td 
+			{
+				font-size: 13px;
+				color: #E6E6E6;
+			}
+			table.darkTable tr:nth-child(even) 
+			{
+				background: #888888;
+			}
+			table.darkTable thead th {
+				background: #000000;
+				border-bottom: 3px solid #000000;
+				font-size: 15px;
+				font-weight: bold;
+				color: #E6E6E6;
+				text-align: center;
+				width: auto;
+			}
 
-      .tooltip .tooltiptext 
-      {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-  
-        /* Position the tooltip */
-        position: absolute;
-        z-index: 1;
-        top: -5px;
-        left: 105%;
-      }
+    		.i7
+    		{
+    		 	display: flex; 
+    		    flex-direction: row;
+    		}
 
-      .tooltip .tooltiptext::after 
-      {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 100%;
-        margin-top: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent black transparent transparent;
-      }
+    		.i7:before, .i7:after
+    		{
+    		 	content: ""; 
+    		    flex: 1 1; 
+    		    border-bottom: 2px solid #353434; 
+    		    margin: auto;
+    		}
 
-      .tooltip:hover .tooltiptext 
-      {
-        visibility: visible;
-      }
+    		.vertical
+    		{
+    			border-left: 6px solid #353435;
+ 				height: auto;
+    		}
 
-      .order
-      {
-      	width: 60px;
-      	margin-bottom: 10px;
-      	margin-right: 10px;
-      	text-align: left;
-      }
+    		.table1
+   			{
+    		  	width: 100%;
+    		  	text-align: left;
+    		}
 
-		</style>
-	</head>
-	<body class= "bg">
-
-		<div class="topnav">
+    		#checkout
+    		{
+    			display: none;
+    		}
+    	</style>
+    </head>
+    <body class="bg">
+    	<div class="topnav">
 			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
 			{% if c != "Null" %}
 			<div id="myMenu">
@@ -248,69 +229,91 @@
 		<div class="bg1">
 			<div>
 				<br><br><br><br>
-        <a href="{% url 'home' %}" class="a1">
+				<a href="{% url 'home' %}" class="a1">
 				<section class= "i1">
 					<pre><b><span>EVT</span><br><span>ElasticVelcroThread</span></b></pre><br>
 				</section>
-        </a>
+       			 </a>
 			</div>
-
-			<div class="i2">ELASTIC</div>
+			<div class="i2">ORDERS</div>
 		</div>
 		<br>
 		<div class="w3-center">
-			<a href="{% url 'elastic' %}"><abbr title="ELASTIC"><button class="b1" disabled="disabled">E</button></abbr></a>
+			<a href="{% url 'elastic' %}"><abbr title="ELASTIC"><button class="b1">E</button></abbr></a>
 			&nbsp;
 			<a href="{% url 'velcro' %}"><abbr title="VELCRO"><button class="b1">V</button></abbr></a>
 			&nbsp;
 			<a href="{% url 'thread' %}"><abbr title="THREAD"><button class="b1">T</button></abbr></a>
 		</div>
 		<br>
-		<hr class="hr" style="text-align: center;">
-		<br><br>
-		<form action="" method="POST">
-		{% csrf_token %}
+		<hr class="hr" style="text-align: center;"><br>
 
-		<div class="w3-row-padding">
-			{% for elastic in elastics %}
-  			<div class="w3-col m1 w3-center, k1" style="width:30%; margin:1.5%">
-  				<div>
-					<img style="height: 300px; margin-top: 20px; width: 300px;" src="{{elastic.img.url}}" alt="">
-				</div>
-				<br>
-				<div style="text-align: left; margin-left: 10px;">
-					{{ elastic.name }}
-				</div>
-				<div style="text-align: left; margin-left: 10px;">
-					{{ elastic.desc }}
-				</div>
-				<div style="text-align: left; margin-left: 10px;">
-					<span>Rs.</span> {{ elastic.price }}<span> Per Roll</span>
-				</div>
-				<br>
-
-				{% if c != "Null" %}
-				<div style="float: right;">
-					<span>
-						<input type="hidden" id="pId" name="pId" value="{{ elastic.id }}">
-						<input type="number" name="quantity" min="1" class="order" style="background-color: #BDB9B9">
-						<label for="quantity" class="order">Rolls</label>
-					</span>
-					<br>
-					<input type="submit" name="addtocard" value="Add To Cart" class="order" style="width: auto; margin-bottom: 15px;">
-				</div>
-				{% else %}
-				<div style="margin-bottom: 15px;">
-					<label>*Sign in to make the purchase*</label>
-				</div>
-				{% endif %}
-
-  			</div>
-  			{% endfor %}
+		<table align="center" class="darkTable">
+			<thead>
+			<tr>
+				<th>Order ID</th>
+				<th>Product Name</th>
+				<th>Quantity</th>
+				<th>Billing Amount</th>
+				<th>Mode of Payment</th>
+				<th>Status</th>
+			</tr>
+			</thead>
+			{% for content in con %}
+			{% if content.uemailaddress == c.email %}
+				<tr>
+					<td>{{content.id}}</td>
+					<td>{{content.productname}}</td>
+					<td>{{content.productqty}}</td>
+					<td>{{content.productamount}}</td>
+					<td>{{content.payment}}</td>
+					<td>{{content.status}}</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">-- EMPTY --</td>
+				</tr>
+			{% endif %}
+			{% endfor %}
+		</table>
+		
+		<br><hr class="hr" style="text-align: center;"><br><br>
+		<div>
+			<table class="table1">
+				<tr>
+					<th>
+						<ul type="none" class="i4">
+							<li class="i5"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;<span>Mukul Jain</span></li>
+							<li><a href="https://wa.me/918810548394" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 88105 48394</span></a></li>
+							<li><a href="https://instagram.com/_not.so.sketchy_?igshid=i5kf5gb8tl4u" class="a1" target="_blank"><i class="fa fa-instagram"></i>&nbsp;&nbsp;<span>_not.so.sketchy_</span></a></li>
+						</ul>
+					</th>
+					<th>
+						<span class="vertical"></span>
+					</th>
+					<th>
+						<ul type="none" class="i4">
+							<li class="i5"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;<span>Dev Sharma</span></li>
+							<li><a href="https://wa.me/919990555775" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 99905 55775</span></a></li>
+							<li><a href="https://instagram.com/devsharma_31?igshid=nz0qlj4p3xv2" class="a1" target="_blank"><i class="fa fa-instagram"></i>&nbsp;&nbsp;<span>devsharma_31</span></a></li>
+						</ul>
+					</th>
+					<th>
+						<span class="vertical"></span>
+					</th>
+					<th>
+						<ul type="none" class="i4">
+							<li class="i5"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;<span>Rhea Kochhar</span></li>
+							<li><a href="https://wa.me/919958911438" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 99589 11438</span></a></li>
+							<li><a href="https://instagram.com/rheakochhar16?igshid=fx9umd3ry73s" class="a1" target="_blank"><i class="fa fa-instagram"></i>&nbsp;&nbsp;<span>rheakochhar16</span></a></li>
+						</ul>
+					</th>
+				</tr>
+			</table>
 		</div>
-		</form>		
 
-		<br><br>
+		<br>
+		<br>
 		<hr class="hr" style="text-align: center;">
 
 		<section class="i3">
@@ -332,6 +335,19 @@
 				else 
 				{
     				x.style.display = "block";
+  				}
+			}
+
+			function purchase()
+			{
+				var y = document.getElementById("checkout");
+				if (y.style.display === "block") 
+  				{
+  					y.style.display = "none";
+				}
+				else 
+				{
+    				y.style.display = "block";
   				}
 			}
 		</script>

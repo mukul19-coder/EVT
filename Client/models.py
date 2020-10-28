@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 class client(models.Model):
 	fname= models.CharField(max_length=100)
@@ -17,4 +18,3 @@ def __str__(self):
     return self.address
     return self.email
     return self.password	
-		

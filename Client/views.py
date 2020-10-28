@@ -15,10 +15,7 @@ def signup_view(request):
 
 		user = client(fname=fname, lname=lname, oname=oname, number=number, address=address, email=email, password=password)
 		user.save()
-		print('user created')
-		return redirect('/')
+		return redirect('/signin/')
 		
 	else:
 		return render(request, "signup.html", {})
-
-	

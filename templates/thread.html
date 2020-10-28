@@ -211,16 +211,36 @@
       {
         visibility: visible;
       }
+
+      .order
+      {
+      	width: 60px;
+      	margin-bottom: 10px;
+      	margin-right: 10px;
+      	text-align: left;
+      }
+
 		</style>
 	</head>
 	<body class= "bg">
 
 		<div class="topnav">
-			<abbr title="Click"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
+			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
+			{% if c != "Null" %}
+			<div id="myMenu">
+				<a>Hello, {{c.fname}} {{c.lname}}</a>
+				<abbr title="Orders"><a style="position: absolute; right: 140px; margin-right: 80px;" href="{% url 'orders' %}"><i class="far fa-file" style='font-size:24px'></i></a></abbr>
+				<a style="position: absolute; right: 130px; margin-right: 50px; margin-top:13px; border-left: 4px solid #4D4B4B; height: auto;"></a>
+				<a style="position: absolute; right: 70px; margin-right: 80px;" href="{% url 'shoppingcart' %}"><i class="fas fa-shopping-cart" style='font-size:24px'></i></a>
+				<a style="position: absolute; right: 60px; margin-right: 50px; margin-top:13px; border-left: 4px solid #4D4B4B; height: auto;"></a>
+    			<a style="position: absolute; right: -20px; margin-right: 50px;" href="{% url 'log_out' %}">Sign Out</a>
+ 			</div>
+			{% else %}
 			<div id="myMenu">
     			<a href="{% url 'signup' %}">Sign Up</a>
   				<a href="{% url 'signin' %}">Sign In</a>
  			</div>
+ 			{% endif %}
 		</div>
 
 		<div class="bg1">
@@ -247,26 +267,47 @@
 		<hr class="hr" style="text-align: center;">
 		<br><br>
 		
+		<form action="" method="POST">
+		{% csrf_token %}
+
 		<div class="w3-row-padding">
 			{% for thread in threads %}
-  			<div class="w3-col m1 w3-center, i5" style="width:30%; margin:1.5%">
+  			<div class="w3-col m1 w3-center, k1" style="width:30%; margin:1.5%">
   				<div>
 					<img style="height: 300px; margin-top: 20px; width: 300px;" src="{{thread.img.url}}" alt="">
 				</div>
 				<br>
-				<div style="text-align: left;">
+				<div style="text-align: left; margin-left: 10px;">
 					{{ thread.name }}
 				</div>
-				<div style="text-align: left;">
+				<div style="text-align: left; margin-left: 10px;">
 					{{ thread.desc }}
 				</div>
-				<div style="text-align: left;">
-					<span>Rs.</span> {{ thread.price }} <span>/ Set</span>
+				<div style="text-align: left; margin-left: 10px;">
+					<span>Rs.</span> {{ thread.price }}<span> Per Roll</span>
 				</div>
 				<br>
+
+				{% if c != "Null" %}
+				<div style="float: right;">
+					<span>
+						<input type="hidden" id="pId" name="pId" value="{{ thread.id }}">
+						<input type="number" name="quantity" min="1" class="order" style="background-color: #BDB9B9">
+						<label for="quantity" class="order">Rolls</label>
+					</span>
+					<br>
+					<input type="submit" name="addtocard" value="Add To Cart" class="order" style="width: auto; margin-bottom: 15px;">
+				</div>
+				{% else %}
+				<div style="margin-bottom: 15px;">
+					<label>*Sign in to make the purchase*</label>
+				</div>
+				{% endif %}
+
   			</div>
   			{% endfor %}
 		</div>
+		</form>
 
 		<br><br>
 		<hr class="hr" style="text-align: center;">
