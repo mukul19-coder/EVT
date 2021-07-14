@@ -40,12 +40,10 @@ class order_6(models.Model):
 	productcode = models.CharField(max_length=100)
 	productqty = models.CharField(max_length=100)
 	productamount = models.CharField(max_length=100)
-	payment = models.CharField(max_length=100)
-	aname = models.CharField(max_length=100)
-	anumber = models.CharField(max_length=100)
-	bname = models.CharField(max_length=100)
-	transactionid = models.CharField(max_length=100)
+	paymentmethod = models.CharField(max_length=100, default='Payment On Delivery')
 	status = models.CharField(max_length=100)
+	payment_id = models.CharField(max_length=100, default='Payment On Delivery')
+	paid = models.BooleanField(default=False)
 
 def __str__(self):
 	return self.uid
@@ -59,9 +57,5 @@ def __str__(self):
 	return self.productcode
 	return self.productqty
 	return self.productamount
-	return self.payment
-	return self.aname
-	return self.anumber
-	return self.bname
-	return self.transactionid
+	return self.paymentmethod
 	return self.status

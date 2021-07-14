@@ -10,7 +10,7 @@
 		<title>Sign IN</title>
 		<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
 		<style>
-						.bg
+			.bg
 			{
 				background-color: #2A2828;
 				color: #ffffff;			
@@ -33,7 +33,7 @@
 				border: 2px solid #D6D0D0;
 				color: #D6D0D0;
 				font-size: 20px;
-				width: 200px;
+				width: 230px;
 				height: 100px;
 				margin: auto;
 				padding: auto;
@@ -75,7 +75,7 @@
 
 			.b1:hover, .b1:active, .b1:visited
 			{
-				background-color: rgba(255, 255, 255,0.4);
+				background-color: rgba(232, 114, 24,0.7);
 				color: #ffffff;
 			}
 
@@ -111,7 +111,7 @@
 
 			.topnav a:hover 
 			{
-  				background-color: #d2d2d2;
+  				background-color: #E87218;
   				color: black;
 			}
 
@@ -216,7 +216,7 @@
 	<body class= "bg">
 
 		<div class="topnav">
-			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
+			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fa fa-user-circle" style='font-size:24px'></i></a></abbr>
 			<div id="myMenu">
     			<a href="{% url 'signup' %}">Sign Up</a>
   				<a href="{% url 'signin' %}">Sign In</a>
@@ -249,14 +249,14 @@
 		<div>
  
  	<form method="POST" action="">
- 			{% csrf_token %}
+ 		{% csrf_token %}
         <table align="center" class="i6">
           <tr>
             <td rowspan="2">
               <label for="email">Email ID:</label>
             </td>
             <td rowspan="2">
-              <input type="text" name="email" autofocus="autofocus">&nbsp;
+              <input type="email" name="email" autofocus="autofocus">&nbsp;
             </td>
           </tr>
           <tr></tr>
@@ -265,7 +265,7 @@
               <label for="password">Password:</label>
             </td>
             <td>
-              <input type="text" name="password">
+              <input type="password" name="password">
             </td>
           </tr>
           <tr>
@@ -279,12 +279,12 @@
           </tr>
           <tr>
             <td colspan="4" rowspan="2" style="text-align: center;"><br>
-              <input type="submit" style="box-shadow: 0 4px 8px 0 rgba(79, 75, 75, 0.6), 0 6px 20px 0 rgba(79, 75, 75, 0.19); ">
+              <input type="submit" value="SIGN IN" style="box-shadow: 0 4px 8px 0 rgba(79, 75, 75, 0.6), 0 6px 20px 0 rgba(79, 75, 75, 0.19); ">
             </td>
           </tr>
         </table>
     </form>
-        
+        <p align="center"><span>New Member?</span>&nbsp;<a href="{% url 'signup' %}" style="color: #E87218">Sign UP</a></p>
     </div>	
 		
 		<br><br>
@@ -292,10 +292,10 @@
 
 		<section class="i3">
 			<span>Elastic. Velcro. Thread.</span><br>
-			<abbr title="MASTERCARD"><i class="fab fa-cc-mastercard"></i></abbr>
-			<abbr title="VISA"><i class="fab fa-cc-visa"></i></abbr>
-			<abbr title="PAYPAL"><i class="fab fa-paypal"></i></abbr>
-			<abbr title="COD"><i class="fas fa-money-bill-wave"></i></abbr>
+			<abbr title="MASTERCARD"><i class="fa fa-cc-mastercard"></i></abbr>
+			<abbr title="VISA"><i class="fa fa-cc-visa"></i></abbr>
+			<abbr title="PAYPAL"><i class="fa fa-cc-paypal"></i></abbr>
+			<abbr title="COD"><i class="fa fa-money"></i></abbr>
 		</section>
 
 		<script type="text/javascript">

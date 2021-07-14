@@ -33,7 +33,7 @@
 				border: 2px solid #D6D0D0;
 				color: #D6D0D0;
 				font-size: 20px;
-				width: 200px;
+				width: 230px;
 				height: 100px;
 				margin: auto;
 				padding: auto;
@@ -75,16 +75,16 @@
 				color: #D6D0D0;
 			}
 
-      .i6
-      {
-        background-color: #222121;
-        height: auto;
-        margin: auto;
-        padding: auto;
-        text-align: left;
-        padding: 30px;
-        width: auto;
-      }
+            .i6
+            {
+              background-color: #222121;
+              height: auto;
+              margin: auto;
+              padding: auto;
+              text-align: left;
+              padding: 30px;
+              width: auto;
+            }
    
 			.b1
 			{
@@ -99,7 +99,7 @@
 
 			.b1:hover, .b1:active, .b1:visited
 			{
-				background-color: rgba(255, 255, 255,0.4);
+				background-color: rgba(232, 114, 24,0.7);
 				color: #ffffff;
 			}
 
@@ -131,11 +131,12 @@
 			.topnav #myMenu 
 			{
 				display: none;
+				font-weight: bold;
 			}
 
 			.topnav a:hover 
 			{
-  				background-color: #d2d2d2;
+  				background-color: #E87218;
   				color: black;
 			}
 
@@ -146,42 +147,84 @@
   				text-align: right;
 			}
 
-      .tooltip 
-      {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-      }
+		    .tooltip 
+		    {
+		      position: relative;
+		      display: inline-block;
+		      border-bottom: 1px dotted black;
+		    }
 
-      .tooltip .tooltiptext 
-      {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-  
-        /* Position the tooltip */
-        position: absolute;
-        z-index: 1;
-        top: 100%;
-        left: 50%;
-        margin-left: -60px;
-      }
+		    .tooltip .tooltiptext 
+		    {
+		      visibility: hidden;
+		      width: 120px;
+		     background-color: black;
+		      color: #fff;
+		      text-align: center;
+		      border-radius: 6px;
+		      padding: 5px 0;
+		  
+		      /* Position the tooltip */
+		      position: absolute;
+		      z-index: 1;
+		      top: 100%;
+		      left: 50%;
+		      margin-left: -60px;
+		    }
 
-      .tooltip:hover .tooltiptext 
-      {
-        visibility: visible;
-      }
+		    .tooltip:hover .tooltiptext 
+		    {
+		      visibility: visible;
+		    }
+
+
+			* {box-sizing: border-box}
+			body {font-family: Verdana, sans-serif; margin:0}
+			.mySlides {display: none}
+			img {vertical-align: middle;}
+
+			/* Slideshow container */
+			.slideshow-container {
+			  max-width: 1000px;
+			  position: relative;
+			  margin: auto;
+			}
+
+			/* Next & previous buttons */
+			.prev, .next {
+			  cursor: pointer;
+			  position: absolute;
+			  top: 50%;
+			  width: auto;
+			  padding: 16px;
+			  margin-top: -22px;
+			  color: white;
+			  font-weight: bold;
+			  font-size: 18px;
+			  transition: 0.6s ease;
+			  border-radius: 0 3px 3px 0;
+			  user-select: none;
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+			  right: 0;
+			  border-radius: 3px 0 0 3px;
+			}
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover, .next:hover {
+			  background-color: rgba(0,0,0,0.8);
+			}
+
+			
 
 		</style>
 	</head>
 	<body class= "bg">
 		
 		<div class="topnav">
-			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
+			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fa fa-user-circle" style='font-size:24px'></i></a></abbr>
 			<div id="myMenu">
     			<a href="{% url 'signup' %}">Sign Up</a>
   				<a href="{% url 'signin' %}">Sign In</a>
@@ -214,84 +257,87 @@
 		<div>
         <form action="" method="post">
           {% csrf_token %}
-        <table align="center" class="i6">
-        	<tr>
-        		<th colspan="4" style="text-align: center;">
-        			New Customer?
-        		</th>
-        	</tr>
-        	<tr></tr>
-          <tr>
-            <td>
-              <label for="fname">First Name:</label>
-            </td>
-            <td>
-              <input type="text" name="fname">&nbsp;
-            </td>
-            <td>
-              <label for="lname">Last Name:</label>
-            </td>
-            <td>
-              <input type="text" name="lname">
-            </td>
-          </tr>
-          <tr></tr>
-          <tr>
-            <td>
-              <label for="oname">Organization Name:</label>
-            </td>
-            <td>
-              <input type="text" name="oname" required="required">
-            </td>
-            <td>
-              <label for="number">Phone Number:</label>
-            </td>
-            <td>
-              <input type="text" name="number" placeholder="88XXXXXXX4" pattern="[0-9]{10}" required>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for="address">Address:</label>
-            </td>
-            <td colspan="3">
-              <input type="text" name="address" size="54">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for="email">Email ID:</label>
-            </td>
-            <td>
-              <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="abc1233@abc.com" title="Please enter a valid Email address" name="email" required="required">&nbsp;
-            </td>
-            <td>
-              <label for="passwords">Password:</label>
-            </td>
-            <td>
-              <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 and at most 20" name="password" required="required">
-            </td>
-          </tr>
-          <tr>
-            <td colspan="4" rowspan="2" style="text-align: center;"><br>
-              <input type="submit" style="box-shadow: 0 4px 8px 0 rgba(79, 75, 75, 0.6), 0 6px 20px 0 rgba(79, 75, 75, 0.19);">
-            </td>
-          </tr>
-        </table>
+
+		<div>
+				<table align="center" class="i6">
+		        	<tr>
+		        		<th colspan="4" style="text-align: center;">
+		        			New Customer?
+		        		</th>
+		        	</tr>
+		        	<tr></tr>
+		        	<tr>
+		        		<td>
+		        			<div>
+				          		{% for message in messages %}
+				          		<h4 style="color: red; text-align: center;"><b> *{{message}}* </b></h4>
+				          		{% endfor %}
+				          	</div>
+		        		</td>
+		        	</tr>
+		           <tr>
+		            <td>
+		              <label for="email">Email ID:</label>
+		            </td>
+		            <td colspan="3">
+		              <input type="text" name="email" placeholder="EMAIL ID" size="61">&nbsp;
+		            </td>
+		        	</tr>
+		        <tr>
+		            <td>
+		              <label for="passwords">Password:</label>
+		            </td>
+		            <td>
+		              <input type="text" name="password1" placeholder="PASSWORD" required="required">
+		            </td>
+		        
+		            <td>
+		              <label for="passwords">Confirm Password:</label>
+		            </td>
+		            <td>
+		              <input type="text" name="password2" placeholder="CONFIRM PASSWORD" required="required">
+		            </td>
+		        </tr>
+		        	<tr></tr>
+		        	<tr>
+			        	<td>
+			              <label for="fname">First Name:</label>
+			            </td>
+			            <td>
+			              <input type="text" name="first_name" placeholder="FIRST NAME">&nbsp;
+			            </td>
+
+				        <td>
+			              <label for="lname">Last Name:</label>
+			            </td>
+			            <td>
+			              <input type="text" name="last_name" placeholder="LAST NAME">&nbsp;
+			            </td>
+		        	</tr>
+		          <tr>
+		            <td colspan="4" rowspan="2" style="text-align: center;"><br>
+		              <input type="submit" value="SIGN UP" style="box-shadow: 0 4px 8px 0 rgba(79, 75, 75, 0.6), 0 6px 20px 0 rgba(79, 75, 75, 0.19);">
+		            </td>
+		          </tr>
+		        </table>
+		</div>
+		<br>
+		<div>
+		</div>
         </form>
 
-        <p align="center"><span>Already a Member?</span>&nbsp;<a href="{% url 'signin' %}">Sign IN</a></p>
+        <p align="center"><span>Already a Member?</span>&nbsp;<a href="{% url 'signin' %}" style="color: #E87218">Sign IN</a></p>
     </div>	
 		
-		<br><br>
+		<br>
 		<hr class="hr" style="text-align: center;">
 
 		<section class="i3">
 			<span>Elastic. Velcro. Thread.</span><br>
-			<abbr title="MASTERCARD"><i class="fab fa-cc-mastercard"></i></abbr>
-			<abbr title="VISA"><i class="fab fa-cc-visa"></i></abbr>
-			<abbr title="PAYPAL"><i class="fab fa-paypal"></i></abbr>
-			<abbr title="COD"><i class="fas fa-money-bill-wave"></i></abbr>
+			<abbr title="MASTERCARD"><i class="fa fa-cc-mastercard"></i></abbr>
+			<abbr title="VISA"><i class="fa fa-cc-visa"></i></abbr>
+			<abbr title="PAYPAL"><i class="fa fa-cc-paypal"></i></abbr>
+			<abbr title="COD"><i class="fa fa-money"></i></abbr>
 		</section>
 
 		<script type="text/javascript">
@@ -308,5 +354,7 @@
   				}
 			}
 		</script>
+
+			
 	</body>
 </html>

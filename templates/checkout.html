@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<title>EVT - ELASTIC, VELCRO, THREAD</title>
 		<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
 			.bg
 			{
@@ -32,7 +33,7 @@
 				border: 2px solid #D6D0D0;
 				color: #D6D0D0;
 				font-size: 20px;
-				width: 200px;
+				width: 230px;
 				height: 100px;
 				margin: auto;
 				padding: auto;
@@ -80,7 +81,7 @@
 			{
  				float: left;
  				color: #fff;
-  			text-align: center;
+  				text-align: center;
  				padding: 14px 16px;
  				text-decoration: none;
  				font-size: 17px;
@@ -88,7 +89,7 @@
 
 			.topnav a:hover 
 			{
-  				background-color: #d2d2d2;
+  				background-color: #E87218;
   				color: black;
 			}
 
@@ -102,12 +103,6 @@
 			.topnav #myMenu 
 			{
 				display: none;
-			}
-
-			.b1:disabled
-			{
-				color: #656565;
-				background-color: #2A2828;
 			}
 
 			.i4
@@ -143,6 +138,12 @@
  				height: auto;
     		}
 
+    		.vertical1
+    		{
+    			border-left: 6px solid #E87218;
+ 				height: auto;
+    		}
+
     		.table1
    			{
     		  	width: 100%;
@@ -162,7 +163,8 @@
         		padding: auto;
         		text-align: left;
         		padding: 30px;
-        		width: 50%;
+        		width: 70%;
+        		border: 1px white;
       		}
 
       		#payMethod, #aname, #anumber, #ano, #bn, #bname, #ti, #tid
@@ -177,24 +179,76 @@
 				color: #ffffff;
 				width: 100%;
 			}
+
+			.c1:hover
+			{
+				background-color: #E87218;
+				border: none;
+			}
+
+			.so1
+		    {
+		    	background-color: white;
+		    	color: black;
+		    }
+
+		    input[type="radio"] {
+			  /* remove standard background appearance */
+			  -webkit-appearance: none;
+			  -moz-appearance: none;
+			  appearance: none;
+			  /* create custom radiobutton appearance */
+			  display: inline-block;
+			  width: 15px;
+			  height: 15px;
+			  padding: 3px;
+			  /* background-color only for content */
+			  background-clip: content-box;
+			  border: 1px solid #bbbbbb;
+			  background-color: #e7e6e7;
+			  border-radius: 50%;
+			}
+
+		    input[type="radio"]:checked 
+		    {
+  				background-color: #E87218;
+			}
+
     	</style>
     </head>
     <body class="bg">
     	<div class="topnav">
-			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fas fa-user-alt" style='font-size:24px'></i></a></abbr>
+			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fa fa-user-circle" style='font-size:24px'></i></a></abbr>
 			{% if c != "Null" %}
 			<div id="myMenu">
-				<a>Hello, {{c.fname}} {{c.lname}}</a>
-				<abbr title="Orders"><a style="position: absolute; right: 140px; margin-right: 80px;" href="{% url 'orders' %}"><i class="far fa-file" style='font-size:24px'></i></a></abbr>
-				<a style="position: absolute; right: 130px; margin-right: 50px; margin-top:13px; border-left: 4px solid #4D4B4B; height: auto;"></a>
-				<a style="position: absolute; right: 70px; margin-right: 80px;" href="{% url 'shoppingcart' %}"><i class="fas fa-shopping-cart" style='font-size:24px'></i></a>
-				<a style="position: absolute; right: 60px; margin-right: 50px; margin-top:13px; border-left: 4px solid #4D4B4B; height: auto;"></a>
-    			<a style="position: absolute; right: -20px; margin-right: 50px;" href="{% url 'log_out' %}">Sign Out</a>
+				<a style="position: absolute; left: 70px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<a style="position: absolute; left: 75px;">Hello, {{c.first_name}} {{c.last_name}}</a>
+
+				{% if c.is_superuser %}
+					<abbr title="Panel"><a style="position: absolute; right: 290px; margin-right: 80px;" href="{% url 'panel' %}"><i class="fa fa-list-alt" style="font-size:24px"></i></a></abbr>
+				{% endif %}
+				<a style="position: absolute; right: 270px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Settings"><a style="position: absolute; right: 210px; margin-right: 80px;" href="{% url 'settings' %}"><i class="fa fa-gear" style="font-size:24px"></i></a></abbr>
+
+				<a style="position: absolute; right: 200px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Order History"><a style="position: absolute; right: 140px; margin-right: 80px;" href="{% url 'orders' %}"><i class="fa fa-file" style='font-size:24px'></i></a></abbr>
+
+				<a style="position: absolute; right: 130px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Home"><a style="position: absolute; right: 70px; margin-right: 80px;" href="{% url 'home' %}"><i class="fa fa-home" style='font-size:24px'></i></a></abbr>
+
+				<a style="position: absolute; right: 60px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+    			<abbr title="Sign Out"><a class="so1" style="position: absolute; right: 20px; margin-right: 50px;" href="{% url 'log_out' %}"><i class="fa fa-sign-out" style='font-size:24px; color: Black;'></i></a></abbr>
  			</div>
 			{% else %}
 			<div id="myMenu">
-    			<a href="{% url 'signup' %}">Sign Up</a>
-  				<a href="{% url 'signin' %}">Sign In</a>
+				<a style="position: absolute; left: 65px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+    			<a style="position: absolute; left: 67px;" href="{% url 'signup' %}">Sign Up</a>
+  				<a style="position: absolute; left: 170px;" href="{% url 'signin' %}">Sign In</a>
  			</div>
  			{% endif %}
 		</div>
@@ -212,10 +266,12 @@
 		</div>
 		<br>
 		<hr class="hr" style="text-align: center;"><br>
-
 		<form method="POST" action="{% url 'purchase' %}">
           {% csrf_token %}
 		<table class="i6">
+			<tr>
+				<td style="text-align: right;" colspan="4"><abbr title="Back To Cart"><a href="{% url 'shoppingcart' %}"><i class="fa fa-shopping-cart" style="font-size: 24px; color: #E87218"></i></a></abbr> &nbsp;</td>
+			</tr>
 			<tr>
 				<th colspan="2" style="color: #CCC8C8;">
 					Billing Details:
@@ -226,36 +282,35 @@
 				<td> </td>
 			</tr>
 			<tr>
-				<td class="vertical"></td>
-				<td style="font-weight: bold; color: #696565;" width="30%">Username:</td>
+				<td class="vertical1"></td>
+				<td style="font-weight: bold; color: #696565;" width="25%">Username:</td>
 				<td>
-					<input type="text" name="user" readonly="readonly" value="{{c.fname}} {{c.lname}}" class="textbox_background">
-					<input type="hidden" name="uname" value="{{c.fname}}">
+					<input type="text" name="user" readonly="readonly" value="{{c.first_name}} {{c.last_name}}" class="textbox_background">
 				</td>
 			</tr>
 			<tr>
-				<td class="vertical"></td>
+				<td class="vertical1"></td>
 				<td style="font-weight: bold; color: #696565;">Phone Number:</td>
-				<td><input type="text" name="unumber" readonly="readonly" value="{{c.number}}" class="textbox_background"></td>
+				<td><input type="text" name="unumber" readonly="readonly" value="{{profile.number}}" class="textbox_background"></td>
 			</tr>
 			<tr>
-				<td class="vertical"></td>
+				<td class="vertical1"></td>
 				<td style="font-weight: bold; color: #696565;">Organisation name:</td>
-				<td><input type="text" name="uorganisationname" readonly="readonly" value="{{c.oname}}" class="textbox_background"></td>
+				<td><input type="text" name="uorganisationname" readonly="readonly" value="{{profile.oname}}" class="textbox_background"></td>
 			</tr>
 			<tr>
-				<td class="vertical"></td>
+				<td class="vertical1"></td>
 				<td style="font-weight: bold; color: #696565;">User Email:</td>
 				<td><input type="text" name="uemailaddress" readonly="readonly" value="{{c.email}}" class="textbox_background"></td>
 			</tr>
 			<tr>
-				<td class="vertical"></td>
+				<td class="vertical1"></td>
 				<td style="font-weight: bold; color: #696565;">Billing Address:</td>
-				<td><input type="text" name="uaddress" readonly="readonly" value="{{c.address}}" class="textbox_background"></td>
+				<td><input type="text" name="uaddress" readonly="readonly" value="{{profile.address}}" class="textbox_background"></td>
 			</tr>
 		</table>
 		
-		<table class="i6">
+		<table class="i6" >
 			<tr>
 				<th colspan="2" style="color: #CCC8C8;">
 					Order Details:
@@ -275,10 +330,11 @@
 					<td>
 						Amount (Rs.)
 					</td>
+					<td></td>
 				</tr>
 			{% for content in con %}
 				<tr>
-					<td class="vertical"></td>
+					<td class="vertical1"></td>
 					<td>
 						{{ content.code }} - {{ content.pId }}
 						<input type="hidden" name="productid" value="{{content.pId}}">
@@ -288,103 +344,105 @@
 						{{ content.pname }}
 						<input type="hidden" name="productname" value="{{content.pname}}">
 					</td>
-					<td><span style="border-left: 3px solid #3C3B3C;"></span></td>
+					<td class="vertical1"></td>
 					<td>
 						{{ content.qty }} 
 						<input type="hidden" name="productqty" value="{{content.qty}}">
 					</td>
+					<td>
 						{% if content.code == "E" %}
 							{% for e1 in elastics_1 %}
-								<td>
 									{% if e1.name == content.pname %}
-										<input type="text" name="productamount" readonly="readonly" value="{% widthratio e1.price 1 content.qty %}" class="textbox_background">
+										<input type="text" name="productamount" id="amt" readonly="readonly" value="{% widthratio e1.price 1 content.qty %}" class="textbox_background">
 									{% endif %}
-								</td>
 							{% endfor %}
 						{% elif content.code == "V" %}
 							{% for v1 in velcros_1 %}
-								<td>
 									{% if v1.name == content.pname %}
-										<input type="text" name="producamount" readonly="readonly" value="{% widthratio v1.price 1 content.qty %}" class="textbox_background">
+										<input type="text" name="productamount" id="amt" readonly="readonly" value="{% widthratio v1.price 1 content.qty %}" class="textbox_background">
 									{% endif %}
-								</td>
 							{% endfor %}
 						{% elif content.code == "T" %}
 							{% for t1 in threads_1 %}
-								<td>
 									{% if t1.name == content.pname %}
-										<input type="text" name="productamount" readonly="readonly" value="{% widthratio t1.price 1 content.qty %}" class="textbox_background">
+										<input type="text" name="productamount" id="amt" readonly="readonly" value="{% widthratio t1.price 1 content.qty %}" class="textbox_background">
 									{% endif %}
-								</td>
 							{% endfor %}
 						{% else %}
-							<td>error</td>
+							error
 						{% endif %}
+					</td>
 				</tr>
 			{% endfor %}
 		</table>
 
 		<table class="i6">
 			<tr>
-				<th style="color: #CCC8C8;" width="30%">
+				<th style="color: #CCC8C8;" width="22%" colspan="2">
 					Payment Details:
 				</th>
-				<th width="70%">
-					<hr style="width: 100%" class="hr">
+				<th colspan="2">
+					<hr style="width: 98%" class="hr">
 				</th>
 			</tr>
 			<tr>
+				<td class="vertical1"></td>
 				<td>
-					<label>Payment Mode</label>
+					<label style="color: #CCC8C8;">Payment Mode</label>
 				</td>
+				<td width="35%">
+					<input type="radio" id="Payment On Delivery" name="paymentmethod" value="Payment On Delivery" style="display: inline-block;">
+					<label for="Payment On Delivery" style="display: inline-block;">Payment On Delivery</label><br>
+				</td>
+				{% if payment %}
 				<td>
-					<input type="radio" name="payment" id="cash" value="COD" onclick="pm('cash')" required="required">
-					<label for="cash">CASH ON DELIVERY</label>
-					&nbsp; &nbsp;
-					<input type="radio" name="payment" id="rtgs" value="RTGS" onclick="pm('rtgs')" required="required6">
-					<label for="rtgs">RTGS</label>
+					<input type="radio" id="Online Payment" checked="checked" name="paymentmethod" value="Online Payment" style="display: inline-block;">
+					<label for="Online Payment" style="display: inline-block;">Online Payment</label><br>
 				</td>
+				{% else %}
+				<td>
+					<input type="radio" id="Online Payment" name="paymentmethod" value="Online Payment" style="display: inline-block;">
+					<label for="Online Payment" style="display: inline-block;">Online Payment</label><br>
+				</td>
+				{% endif %}
 			</tr>
-			<tr>
-				<td>
-					<label  id="payMethod">Account Name</label>
-				</td>
-				<td>
-					<input type="text" name="aname"  id="aname" value="none">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label  id="ano">Account Number</label>
-				</td>
-				<td>
-					<input type="text" name="anumber"  id="anumber"  value="none">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label  id="bn">Bank Name</label>
-				</td>
-				<td>
-					<input type="text" name="bname"  id="bname"  value="none">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label  id="ti">Transaction ID</label>
-				</td>
-				<td>
-					<input type="text" name="tid"  id="tid"  value="none">
-				</td>
-			</tr>
-			<tr>
-				<th style="text-align: right;" colspan="3">
+			<tr style="height: 50px"></tr>
+			<tr id="buy">
+				<th style="text-align: right;" colspan="4">
+					<a href="{% url 'home' %}" style="color: red;">Cancel</a> &nbsp; &nbsp;
 					<input type="hidden" name="status" value="Requested">
-					<input type="submit" name="purchase" value="Proceed and Buy">
+					<input type="submit" name="purchase" value="Proceed and Buy" class="c1" autofocus="autofocus">
 				</th>
 			</tr>
 		</table>
 		</form>
+		{% if payment %}
+		<script type="text/javascript">
+			window.onload = paybutton;
+		</script>
+		<table class="i6">
+			<tr><th style="text-align: right;" colspan="4">
+			<form action="{% url 'success' %}" method="POST">
+				{% csrf_token %}
+			<script
+			    src="https://checkout.razorpay.com/v1/checkout.js"
+			    data-key="rzp_test_u9Ub4CNVxWHXHL" 
+			    data-amount="{{payment.amount}}"
+			    data-currency="INR"
+			    data-order_id="{{payment.id}}"
+			    data-buttontext="Pay with Razorpay"
+			    data-name="EVT - ElasticVelcroThread"
+			    data-description="{{EVT}}"
+			    data-image="{% static 'images/bg-2.jpg' %}"
+			    data-prefill.name="{{c.first_name}}"
+			    data-prefill.email="{{c.email}}"
+			    data-theme.color="#E87218"
+			></script>
+			<input type="hidden" custom="Hidden Element" name="hidden">
+			</form>
+		</th></tr>
+		</table>
+		{% endif %}
 
 		<br><hr class="hr" style="text-align: center;"><br><br>
 		<div>
@@ -392,9 +450,9 @@
 				<tr>
 					<th>
 						<ul type="none" class="i4">
-							<li class="i5"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;<span>Mukul Jain</span></li>
+							<li class="i5"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>Mukul Jain</span></li>
 							<li><a href="https://wa.me/918810548394" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 88105 48394</span></a></li>
-							<li><a href="https://instagram.com/_not.so.sketchy_?igshid=i5kf5gb8tl4u" class="a1" target="_blank"><i class="fa fa-instagram"></i>&nbsp;&nbsp;<span>_not.so.sketchy_</span></a></li>
+							<li><a href="mailto:mukujindal1010@gmail.com" class="a1" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>mukuljindal1010@gmail.com</span></a></li>
 						</ul>
 					</th>
 					<th>
@@ -402,9 +460,9 @@
 					</th>
 					<th>
 						<ul type="none" class="i4">
-							<li class="i5"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;<span>Dev Sharma</span></li>
+							<li class="i5"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>Dev Sharma</span></li>
 							<li><a href="https://wa.me/919990555775" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 99905 55775</span></a></li>
-							<li><a href="https://instagram.com/devsharma_31?igshid=nz0qlj4p3xv2" class="a1" target="_blank"><i class="fa fa-instagram"></i>&nbsp;&nbsp;<span>devsharma_31</span></a></li>
+							<li><a href="mailto:life.devsharma@rediffmail.com" class="a1" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>life.devsharma@rediffmail.com</span></a></li>
 						</ul>
 					</th>
 					<th>
@@ -412,9 +470,9 @@
 					</th>
 					<th>
 						<ul type="none" class="i4">
-							<li class="i5"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;<span>Rhea Kochhar</span></li>
+							<li class="i5"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>Rhea Kochhar</span></li>
 							<li><a href="https://wa.me/919958911438" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 99589 11438</span></a></li>
-							<li><a href="https://instagram.com/rheakochhar16?igshid=fx9umd3ry73s" class="a1" target="_blank"><i class="fa fa-instagram"></i>&nbsp;&nbsp;<span>rheakochhar16</span></a></li>
+							<li><a href="mailto:rheakochhar16@gmail.com" class="a1" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>rheakochhar16@gmail.com</span></a></li>
 						</ul>
 					</th>
 				</tr>
@@ -427,10 +485,10 @@
 
 		<section class="i3">
 			<span>Elastic. Velcro. Thread.</span><br>
-			<abbr title="MASTERCARD"><i class="fab fa-cc-mastercard"></i></abbr>
-			<abbr title="VISA"><i class="fab fa-cc-visa"></i></abbr>
-			<abbr title="PAYPAL"><i class="fab fa-paypal"></i></abbr>
-			<abbr title="COD"><i class="fas fa-money-bill-wave"></i></abbr>
+			<abbr title="MASTERCARD"><i class="fa fa-cc-mastercard"></i></abbr>
+			<abbr title="VISA"><i class="fa fa-cc-visa"></i></abbr>
+			<abbr title="PAYPAL"><i class="fa fa-cc-paypal"></i></abbr>
+			<abbr title="COD"><i class="fa fa-money"></i></abbr>
 		</section>
 
 		<script type="text/javascript">
@@ -447,89 +505,6 @@
   				}
 			}
 
-			function pm(b) 
-			{
-  				var y = document.getElementById("payMethod");
-  				if (b == 'cash') 
-  				{
-  					y.style.display = "none";
-				}
-				else 
-				{
-    				y.style.display = "block";
-  				}
-
-  				var z = document.getElementById("aname");
-  				if (b == 'cash') 
-  				{
-  					z.style.display = "none";
-				}
-				else 
-				{
-    				z.style.display = "block";
-  				}
-
-  				var z1 = document.getElementById("ano");
-  				if (b == 'cash') 
-  				{
-  					z1.style.display = "none";
-				}
-				else 
-				{
-    				z1.style.display = "block";
-  				}
-
-  				var z2 = document.getElementById("anumber");
-  				if (b == 'cash') 
-  				{
-  					z2.style.display = "none";
-				}
-				else 
-				{
-    				z2.style.display = "block";
-  				}
-
-
-  				var z3 = document.getElementById("bname");
-  				if (b == 'cash') 
-  				{
-  					z3.style.display = "none";
-				}
-				else 
-				{
-    				z3.style.display = "block";
-  				}
-
-  				var z4 = document.getElementById("bn");
-  				if (b == 'cash') 
-  				{
-  					z4.style.display = "none";
-				}
-				else 
-				{
-    				z4.style.display = "block";
-  				}
-
-  				var z5 = document.getElementById("ti");
-  				if (b == 'cash') 
-  				{
-  					z5.style.display = "none";
-				}
-				else 
-				{
-    				z5.style.display = "block";
-  				}
-
-  				var z6 = document.getElementById("tid");
-  				if (b == 'cash') 
-  				{
-  					z6.style.display = "none";
-				}
-				else 
-				{
-    				z6.style.display = "block";
-  				}
-			}
 		</script>
 	</body>
 </html>
