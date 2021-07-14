@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Admin Panel</title>
+	<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
+</head>
+		<style>
+			.bg
+			{
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.bg1
+			{
+				background-image: url("{% static 'images/bg-2.jpg' %}");
+				min-height: 600px;
+				background-size: cover;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.i1
+			{
+				text-align: center;
+				border: 2px solid #D6D0D0;
+				color: #D6D0D0;
+				font-size: 20px;
+				width: 230px;
+				height: 100px;
+				margin: auto;
+				padding: auto;
+			}
+
+			.i2
+			{
+				text-align: center;
+				font-size: 500%;
+				font-family: Impact, sans-serif;
+				background-color: rgba(214, 208, 208, 0.5);
+				width: 550px;
+				color: #ffffff;
+				margin: auto;	
+				margin-top: 70px;
+				border-radius: 150px 0px;
+			}	
+
+			.a1:active, .a1:hover, .a1:visited, .a1:link {
+				color: #D6D0D0;
+				text-decoration: none;
+			}
+
+			.i3
+			{
+				text-align: center;
+			}
+
+			.hr
+			{
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+				border-width: 2px;
+				border-color: #353434;
+			}
+
+			.topnav
+			{
+  				overflow: hidden;
+  				background-color: #333;
+			}
+
+			.topnav a 
+			{
+ 				float: left;
+ 				color: #fff;
+  			text-align: center;
+ 				padding: 14px 16px;
+ 				text-decoration: none;
+ 				font-size: 17px;
+			}
+
+			.topnav a:hover 
+			{
+  				background-color: #E87218;
+  				color: black;
+			}
+
+			.topnav a.active 
+			{
+  				background-color: #E87218;
+  				color: white;
+  				text-align: right;
+			}
+
+			.topnav #myMenu 
+			{
+				display: none;
+			}
+
+			.b1:disabled
+			{
+				color: #656565;
+				background-color: #2A2828;
+			}
+
+			.i4
+			{
+				padding: 0px;
+				margin: 0px;
+				margin-left: 20px;
+				line-height: 1.6;
+			}
+
+			.i5
+			{
+				color: #D6D0D0;
+			}
+
+    		table.darkTable 
+    		{
+  				font-family: "Arial Black", Gadget, sans-serif;
+  				border: 0px solid;
+  				background-color: #222121;
+  				width: 100%;
+  				height: auto;
+  				text-align: center;
+  				border-collapse: collapse;
+			}
+
+			table.darkTable td, table.darkTable th 
+			{
+				border: 0px solid #4A4A4A;
+				padding: 10px 30px;
+			}
+			table.darkTable tbody td 
+			{
+				font-size: 13px;
+				color: #E6E6E6;
+			}
+			table.darkTable tr:nth-child(even) 
+			{
+				background: #888888;
+			}
+			table.darkTable thead th {
+				background: #000000;
+				border-bottom: 3px solid #000000;
+				font-size: 15px;
+				font-weight: bold;
+				color: #E6E6E6;
+				text-align: center;
+				width: auto;
+			}
+
+    		.i7
+    		{
+    		 	display: flex; 
+    		    flex-direction: row;
+    		}
+
+    		.i7:before, .i7:after
+    		{
+    		 	content: ""; 
+    		    flex: 1 1; 
+    		    border-bottom: 2px solid #353434; 
+    		    margin: auto;
+    		}
+
+    		.vertical
+    		{
+    			border-left: 6px solid #353435;
+ 				height: auto;
+    		}
+
+    		.table1
+   			{
+    		  	width: 100%;
+    		  	text-align: left;
+    		}
+
+    		#checkout
+    		{
+    			display: none;
+    		}
+
+    		.so1
+		    {
+		    	background-color: white;
+		    	color: black;
+		    }
+		    
+    	</style>
+    </head>
+    <body class="bg">
+    	<div class="topnav">
+			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fa fa-user-circle" style='font-size:24px'></i></a></abbr>
+			{% if c != "Null" %}
+			<div id="myMenu">
+				<a style="position: absolute; left: 70px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<a style="position: absolute; left: 75px;">Hello, {{c.first_name}} {{c.last_name}}</a>
+
+				{% if c.is_superuser %}
+					<abbr title="Home"><a style="position: absolute; right: 290px; margin-right: 80px;" href="{% url 'home' %}"><i class="fa fa-home" style="font-size:24px"></i></a></abbr>
+				{% endif %}
+				<a style="position: absolute; right: 270px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Settings"><a style="position: absolute; right: 210px; margin-right: 80px;" href="{% url 'settings' %}"><i class="fa fa-gear" style="font-size:24px"></i></a></abbr>
+
+				<a style="position: absolute; right: 200px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Order History"><a style="position: absolute; right: 140px; margin-right: 80px;" href="{% url 'orders' %}"><i class="fa fa-file" style='font-size:24px'></i></a></abbr>
+
+				<a style="position: absolute; right: 130px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Cart"><a style="position: absolute; right: 70px; margin-right: 80px;" href="{% url 'shoppingcart' %}"><i class="fa fa-shopping-cart" style='font-size:24px'></i></a></abbr>
+
+				<a style="position: absolute; right: 60px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+    			<abbr title="Sign Out"><a class="so1" style="position: absolute; right: 20px; margin-right: 50px;" href="{% url 'log_out' %}"><i class="fa fa-sign-out" style='font-size:24px; color: Black;'></i></a></abbr>
+			</div>
+			{% else %}
+			<div id="myMenu">
+				<a style="position: absolute; left: 65px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+    			<a style="position: absolute; left: 67px;" href="{% url 'signup' %}">Sign Up</a>
+  				<a style="position: absolute; left: 170px;" href="{% url 'signin' %}">Sign In</a>
+ 			</div>
+ 			{% endif %}
+		</div>
+
+		<div class="bg1">
+			<div>
+				<br><br><br><br>
+				<a href="{% url 'home' %}" class="a1">
+				<section class= "i1">
+					<pre><b><span>EVT</span><br><span>ElasticVelcroThread</span></b></pre><br>
+				</section>
+       			 </a>
+			</div>
+			<div class="i2">ADMIN PANEL</div>
+		</div>
+		
+		<br>
+		<hr class="hr" style="text-align: center;"><br>
+
+		{% for content in o %}
+		<div style="overflow-x: auto; width: 75%; margin-left: auto; margin-right: auto;">
+		<table align="center" class="darkTable">
+			<thead>
+			<tr>
+				<th>Order ID</th>
+				<th>Client ID</th>
+				<th>Client Name</th>
+				<th>Client Email Address</th>
+				<th>Delivery Address</th>
+				<th>Client Number</th>
+				<th>Client Organisation Name</th>
+				<th>Product Name</th>
+				<th>Quantity</th>
+				<th>Billing Amount</th>
+				<th>Mode of Payment</th>
+				<th>Status</th>
+				<th>Payment ID</th>
+				<th>Paid</th>
+				<th></th>
+			</tr>
+			</thead>
+				<tr>
+					<td>{{content.id}}</td>
+					<td>{{content.uid}}</td>
+					<td>{{content.uname}}</td>
+					<td>{{content.uemailaddress}}</td>
+					<td>{{content.uaddress}}</td>
+					<td>{{content.unumber}}</td>
+					<td>{{content.uorganisationname}}</td>
+					<td>{{content.productname}}</td>
+					<td>{{content.productqty}}</td>
+					<td>{{content.productamount}}</td>
+					<td>{{content.paymentmethod}}</td>
+					<td>{{content.status}}</td>
+					<td>{{content.payment_id}}</td>
+					<td>{{content.paid}}</td>
+					{% if content.status == "Requested" %}
+						<td>
+						<form method="POST" action="{% url 'confirmorder' %}">
+          					{% csrf_token %}
+							<input type="hidden" name="cId" id="cId" value="{{ content.id }}">
+							<input type="submit" name="confirm" value="Confirm Order">
+						</form>
+						</td>
+					{% elif content.status == "Confirmed" %}
+						<td>
+						<form method="POST" action="{% url 'outfordelivery' %}">
+          					{% csrf_token %}
+							<input type="hidden" name="cId" id="cId" value="{{ content.id }}">
+							<input type="submit" name="aod" value="Out for Delivery">
+						</form>
+						</td>
+					{% elif content.status == "Out For Delivery" %}
+						<td>
+						<form method="POST" action="{% url 'delivered' %}">
+          					{% csrf_token %}
+							<input type="hidden" name="cId" id="cId" value="{{ content.id }}">
+							<input type="submit" name="aod" value="Delivered">
+						</form>
+						</td>
+					{% elif content.status == "Delivered" %}
+						{% if content.paymentmethod == "Payment On Delivery" %}
+							{% if content.paid == "False" %}
+								<td>
+								<form method="POST" action="{% url 'paid' %}">
+		          					{% csrf_token %}
+									<input type="hidden" name="cId" id="cId" value="{{ content.id }}">
+									<input type="submit" name="aod" value="Paid">
+								</form>
+								</td>
+							{% endif %}						
+						{% endif %}
+					{% else %}
+						<td></td>
+					{% endif %}
+				</tr>
+		</table>
+		</div>
+		<br><br>
+		{% endfor %}
+
+		
+		<br><hr class="hr" style="text-align: center;"><br><br>
+		<div>
+			<table class="table1">
+				<tr>
+					<th>
+						<ul type="none" class="i4">
+							<li class="i5"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>Mukul Jain</span></li>
+							<li><a href="https://wa.me/918810548394" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 88105 48394</span></a></li>
+							<li><a href="mailto:mukujindal1010@gmail.com" class="a1" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>mukuljindal1010@gmail.com</span></a></li>
+						</ul>
+					</th>
+					<th>
+						<span class="vertical"></span>
+					</th>
+					<th>
+						<ul type="none" class="i4">
+							<li class="i5"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>Dev Sharma</span></li>
+							<li><a href="https://wa.me/919990555775" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 99905 55775</span></a></li>
+							<li><a href="mailto:life.devsharma@rediffmail.com" class="a1" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>life.devsharma@rediffmail.com</span></a></li>
+						</ul>
+					</th>
+					<th>
+						<span class="vertical"></span>
+					</th>
+					<th>
+						<ul type="none" class="i4">
+							<li class="i5"><i class="fa fa-user"></i>&nbsp;&nbsp;<span>Rhea Kochhar</span></li>
+							<li><a href="https://wa.me/919958911438" class="a1" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;&nbsp;<span>+91 99589 11438</span></a></li>
+							<li><a href="mailto:rheakochhar16@gmail.com" class="a1" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>rheakochhar16@gmail.com</span></a></li>
+						</ul>
+					</th>
+				</tr>
+			</table>
+		</div>
+
+		<br>
+		<br>
+		<hr class="hr" style="text-align: center;">
+
+		<section class="i3">
+			<span>Elastic. Velcro. Thread.</span><br>
+			<abbr title="MASTERCARD"><i class="fa fa-cc-mastercard"></i></abbr>
+			<abbr title="VISA"><i class="fa fa-cc-visa"></i></abbr>
+			<abbr title="PAYPAL"><i class="fa fa-cc-paypal"></i></abbr>
+			<abbr title="COD"><i class="fa fa-money"></i></abbr>
+		</section>
+
+		<script type="text/javascript">
+			function expand() 
+			{
+  				var x = document.getElementById("myMenu");
+  				if (x.style.display === "block") 
+  				{
+  					x.style.display = "none";
+				}
+				else 
+				{
+    				x.style.display = "block";
+  				}
+			}
+		</script>
+	</body>
+</html>

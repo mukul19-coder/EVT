@@ -1,20 +1,20 @@
 from django.db import models
 from django import forms
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
-class client(models.Model):
-	fname= models.CharField(max_length=100)
-	lname= models.CharField(max_length=100)
-	oname= models.CharField(max_length=100)
-	number= models.CharField(max_length=100)
-	address= models.CharField(max_length=100)
-	email= models.CharField(max_length=100)
-	password= models.CharField(max_length=100)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.TextField(max_length=500, blank=True)
+    oname = models.CharField(max_length=30, blank=True)
+    number = models.DecimalField(decimal_places=0,max_digits=11,default=0.0)
 
-def __str__(self):
-    return self.fname
-    return self.lname
-    return self.oname
-    return self.number
-    return self.address
-    return self.email
-    return self.password	
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()

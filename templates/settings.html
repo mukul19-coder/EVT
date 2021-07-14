@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Settings</title>
+	<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
+
+	<style>
+			.bg
+			{
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.bg1
+			{
+				background-image: url("{% static 'images/bg-2.jpg' %}");
+				min-height: 600px;
+				background-size: cover;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.i1
+			{
+				text-align: center;
+				border: 2px solid #D6D0D0;
+				color: #D6D0D0;
+				font-size: 20px;
+				width: 230px;
+				height: 100px;
+				margin: auto;
+				padding: auto;
+			}
+
+			.i2
+			{
+				text-align: center;
+				font-size: 500%;
+				font-family: Impact, sans-serif;
+				background-color: rgba(214, 208, 208, 0.5);
+				width: 450px;
+				color: #ffffff;
+				margin: auto;	
+				margin-top: 70px;
+				border-radius: 150px 0px;
+			}	
+
+			.topnav
+			{
+  				overflow: hidden;
+  				background-color: #333;
+			}
+
+			.topnav a 
+			{
+ 				float: left;
+ 				color: #fff;
+  			text-align: center;
+ 				padding: 14px 16px;
+ 				text-decoration: none;
+ 				font-size: 17px;
+			}
+
+			.topnav a:hover 
+			{
+  				background-color: #E87218;
+  				color: black;
+			}
+
+			.topnav a.active 
+			{
+  				background-color: #E87218;
+  				color: white;
+  				text-align: right;
+			}
+
+			.topnav #myMenu 
+			{
+				display: none;
+			}
+
+			.i3
+			{
+				text-align: center;
+			}
+
+			.hr
+			{
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+				border-width: 2px;
+				border-color: #353434;
+			}
+			
+
+		    .i6
+		    {
+		    	background-color: #222121;
+		        height: auto;
+		        margin: auto;
+		        padding: auto;
+		        text-align: left;
+		        padding: 30px;
+		        width: auto;
+		    }
+
+		    .accordion 
+		    {
+				background-color: #222121;
+				color: #FFF;
+				width: 60%;
+				cursor: pointer;
+				padding: 18px;
+				border: none;
+				text-align: center;
+				outline: none;
+				font-size: 20px;
+				transition: 0.3s;
+			}
+
+			.active, .accordion:hover 
+			{
+				background-color: #E87218;
+				color: #000; 
+			}
+
+			.panel 
+			{
+				padding: 0 18px;
+				display: none;
+				background-color: rgba(0,0,0,0);
+				width: 60%;
+				overflow: hidden;
+			}
+
+			.so1
+			{
+			   	background-color: white;
+			   	color: black;
+			}
+	</style>
+
+</head>
+<body>
+	<body class= "bg">
+		<div class="topnav">
+			<abbr title="Profile"><a class="active" onclick="expand()"><i class="fa fa-user-circle" style='font-size:24px'></i></a></abbr>
+			{% if c != "Null" %}
+			<div id="myMenu">
+				<a style="position: absolute; left: 70px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<a style="position: absolute; left: 75px;">Hello, {{c.first_name}} {{c.last_name}}</a>
+
+				{% if c.is_superuser %}
+					<abbr title="Panel"><a style="position: absolute; right: 290px; margin-right: 80px;" href="{% url 'panel' %}"><i class="fa fa-list-alt" style="font-size:24px"></i></a></abbr>
+				{% endif %}
+				<a style="position: absolute; right: 270px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Home"><a style="position: absolute; right: 210px; margin-right: 80px;" href="{% url 'home' %}"><i class="fa fa-home" style="font-size:24px"></i></a></abbr>
+
+				<a style="position: absolute; right: 200px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Order History"><a style="position: absolute; right: 140px; margin-right: 80px;" href="{% url 'orders' %}"><i class="fa fa-file" style='font-size:24px'></i></a></abbr>
+
+				<a style="position: absolute; right: 130px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+				<abbr title="Cart"><a style="position: absolute; right: 70px; margin-right: 80px;" href="{% url 'shoppingcart' %}"><i class="fa fa-shopping-cart" style='font-size:24px'></i></a></abbr>
+
+				<a style="position: absolute; right: 60px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+
+    			<abbr title="Sign Out"><a class="so1" style="position: absolute; right: 20px; margin-right: 50px;" href="{% url 'log_out' %}"><i class="fa fa-sign-out" style='font-size:24px; color: Black;'></i></a></abbr>
+ 			</div>
+			{% else %}
+			<div id="myMenu">
+				<a style="position: absolute; left: 65px; margin-right: 50px; margin-top:13px; border-left: 4px solid #E87218; height: auto;"></a>
+    			<a style="position: absolute; left: 67px;" href="{% url 'signup' %}">Sign Up</a>
+  				<a style="position: absolute; left: 170px;" href="{% url 'signin' %}">Sign In</a>
+ 			</div>
+ 			{% endif %}
+		</div>
+
+ 		<div class="bg1">
+			<div>
+				<br><br><br><br>
+				<a href="{% url 'home' %}" class="a1">
+				<section class= "i1">
+					<pre><b><span>EVT</span><br><span>ElasticVelcroThread</span></b></pre><br>
+				</section>
+       			 </a>
+			</div>
+			<div class="i2">SETTINGS</div>
+		</div>
+
+		<br><br>
+		<hr class="hr" style="text-align: center;">
+		<br><br>
+
+		<div align="center">
+
+			<button class="accordion"><i class="fa fa-key">&nbsp;&nbsp;Change Password</i></button>
+			<div class="panel">
+				<br>
+			  <form method="POST" action="{% url 'changepassword' %}">
+			  	{% csrf_token %}
+			  	<table align="center" class="i6">
+			  		<tr>
+			  			<td>New Password</td>
+			  			<td><input type="Password" name="npassword1" required="required"></td>
+			  		</tr>
+			  		<tr>
+			  			<td>Confirm Password</td>
+			  			<td><input type="Password" name="npassword2" required="required"></td>
+			  		</tr>
+			  		<tr>
+			          	<td colspan="2">
+				          	<div>
+				          		{% for message in messages %}
+				          		<h4 style="color: red; text-align: center;"><b> *{{message}}* </b></h4>
+				          		{% endfor %}
+				          	</div>
+			        	</td>
+			        </tr>
+			  		<tr>
+			  			<td colspan="2" style="text-align: center;"><input type="submit" value="Change Password"></td>
+			  		</tr>
+			  	</table>			  	
+			  </form>
+			</div>
+			<br>
+
+			<button class="accordion"><i class="fa fa-map-marker">&nbsp;&nbsp;Change Address</i></button>
+			<div class="panel">
+				<br>
+			  <form method="POST" action="{% url 'changeaddress' %}">
+			  	{% csrf_token %}
+			  	<table align="center" class="i6">
+			  		<tr>
+			  			<td>New Address</td>
+			  			<td><textarea name="naddress" required="required" style="width: 400px; height: 60px;" rows="2" wrap="hard" placeholder="ADDRESS" maxlength="500"></textarea></td>
+			  		</tr>
+			  		<tr>
+			  			<td colspan="2" style="text-align: center;"><input type="submit" value="Change Address"></td>
+			  		</tr>
+			  	</table>			  	
+			  </form>
+			</div>
+			<br>
+
+			<button class="accordion"><i class="fa fa-phone">&nbsp;&nbsp;Change Phone Number</i></button>
+			<div class="panel">
+				<br>
+			  <form method="POST" action="{% url 'changenumber' %}">
+			  	{% csrf_token %}
+			  	<table align="center" class="i6">
+			  		<tr>
+			  			<td>New Phone Number</td>
+			  			<td><input type="text" name="nphone" required="required" placeholder="88XXXXXXX4" pattern="[0-9]{10}" required></td>
+			  		</tr>
+			  		<tr>
+			  			<td colspan="2" style="text-align: center;"><input type="submit" value="Change Phone Number"></td>
+			  		</tr>
+			  	</table>			  	
+			  </form>
+			</div>
+
+			<button class="accordion"><i class="fa fa-briefcase">&nbsp;&nbsp;Change Organisation Name</i></button>
+			<div class="panel">
+				<br>
+			  <form method="POST" action="{% url 'changeorgname' %}">
+			  	{% csrf_token %}
+			  	<table align="center" class="i6">
+			  		<tr>
+			  			<td>New Organisation Name</td>
+			  			<td><input type="text" name="norgname" required="required" required></td>
+			  		</tr>
+			  		<tr>
+			  			<td colspan="2" style="text-align: center;"><input type="submit" value="Change Organisation Name"></td>
+			  		</tr>
+			  	</table>			  	
+			  </form>
+			</div>
+
+	    </div>
+
+		<br><br>
+		<hr class="hr" style="text-align: center;">
+
+		<section class="i3">
+			<span>Elastic. Velcro. Thread.</span><br>
+			<abbr title="MASTERCARD"><i class="fa fa-cc-mastercard"></i></abbr>
+			<abbr title="VISA"><i class="fa fa-cc-visa"></i></abbr>
+			<abbr title="PAYPAL"><i class="fa fa-cc-paypal"></i></abbr>
+			<abbr title="COD"><i class="fa fa-money"></i></abbr>
+		</section>
+
+ 		<script type="text/javascript">
+			function expand() 
+			{
+  				var x = document.getElementById("myMenu");
+  				if (x.style.display === "block") 
+  				{
+  					x.style.display = "none";
+				}
+				else 
+				{
+    				x.style.display = "block";
+  				}
+			}
+
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++) 
+			{
+			  	acc[i].addEventListener("click", function() {
+			    this.classList.toggle("active");
+			    var panel = this.nextElementSibling;
+			    if (panel.style.display === "block") 
+			    {
+			      panel.style.display = "none";
+			    }
+			    else
+			    {
+			      panel.style.display = "block";
+			    }
+			  	});
+			}
+		</script>
+</body>
+</html>

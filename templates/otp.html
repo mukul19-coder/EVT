@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>EVT - ELASTIC, VELCRO, THREAD</title>
+		<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.bg
+			{
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.hr
+			{
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+				border-width: 2px;
+				border-color: #353434;
+			}
+
+    		.vertical
+    		{
+    			border-left: 6px solid #353435;
+ 				height: auto;
+    		}
+
+    		.i6
+      		{
+        		background-color: #000000;
+        		height: auto;
+        		margin: auto;
+        		padding: auto;
+        		text-align: left;
+        		padding: 30px;
+        		width: 50%;
+        		border: 1px white;
+      		}
+
+      		#payMethod, #aname, #anumber, #ano, #bn, #bname, #ti, #tid
+			{
+				display: none;
+			}
+
+			.textbox_background
+			{
+				background-color: transparent;
+				border: 0px;
+				color: #ffffff;
+				width: 100%;
+			}
+    	</style>
+    </head>
+    <body class="bg">
+    	<br><br>
+
+		<table class="i6">
+			<tr>
+				<th style="color: #CCC8C8;">
+					OTP:
+				</th>
+				<td style="font-weight: bold; color: #696565;" width="30%">{{ otp }}</td>
+			</tr>
+		</table>
+
+		<br><br>
+	</body>
+</html>

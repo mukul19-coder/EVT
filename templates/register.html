@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>Details</title>
+		<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
+		<style>
+			.bg
+			{
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.bg1
+			{
+				background-image: url("{% static 'images/bg-2.jpg' %}");
+				min-height: 600px;
+				background-size: cover;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.i1
+			{
+				text-align: center;
+				border: 2px solid #D6D0D0;
+				color: #D6D0D0;
+				font-size: 20px;
+				width: 230px;
+				height: 100px;
+				margin: auto;
+				padding: auto;
+			}
+
+			.i2
+			{
+				text-align: center;
+				font-size: 500%;
+				font-family: Impact, sans-serif;
+				background-color: rgba(214, 208, 208, 0.5);
+				width: 450px;
+				color: #ffffff;
+				margin: auto;	
+				margin-top: 70px;
+				border-radius: 150px 0px;
+			}			
+
+			.a1:active, .a1:hover, .a1:visited, .a1:link {
+				color: #D6D0D0;
+				text-decoration: none;
+			}
+
+			.i3
+			{
+				text-align: center;
+			}
+
+			.i4
+			{
+				padding: 0px;
+				margin: 0px;
+				margin-left: 20px;
+				line-height: 1.6;
+			}
+
+			.i5
+			{
+				color: #D6D0D0;
+			}
+
+            .i6
+            {
+              background-color: #222121;
+              height: auto;
+              margin: auto;
+              padding: auto;
+              text-align: left;
+              padding: 30px;
+              width: auto;
+            }
+   
+			.b1
+			{
+				background-color: #2A2828;
+				color: #ffffff;
+				align-items: center;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				border-width: 0px;
+				border-radius: 50%;
+				padding: 14px;
+			}
+
+			.b1:hover, .b1:active, .b1:visited
+			{
+				background-color: rgba(232, 114, 24,0.7);
+				color: #ffffff;
+			}
+
+			.hr
+			{
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+				border-width: 2px;
+				border-color: #353434;
+			}
+
+		    .tooltip 
+		    {
+		      position: relative;
+		      display: inline-block;
+		      border-bottom: 1px dotted black;
+		    }
+
+		    .tooltip .tooltiptext 
+		    {
+		      visibility: hidden;
+		      width: 120px;
+		     background-color: black;
+		      color: #fff;
+		      text-align: center;
+		      border-radius: 6px;
+		      padding: 5px 0;
+		  
+		      /* Position the tooltip */
+		      position: absolute;
+		      z-index: 1;
+		      top: 100%;
+		      left: 50%;
+		      margin-left: -60px;
+		    }
+
+		    .tooltip:hover .tooltiptext 
+		    {
+		      visibility: visible;
+		    }
+
+
+			* {box-sizing: border-box}
+			body {font-family: Verdana, sans-serif; margin:0}
+			.mySlides {display: none}
+			img {vertical-align: middle;}
+
+			/* Slideshow container */
+			.slideshow-container {
+			  max-width: 1000px;
+			  position: relative;
+			  margin: auto;
+			}
+
+			/* Next & previous buttons */
+			.prev, .next {
+			  cursor: pointer;
+			  position: absolute;
+			  top: 50%;
+			  width: auto;
+			  padding: 16px;
+			  margin-top: -22px;
+			  color: white;
+			  font-weight: bold;
+			  font-size: 18px;
+			  transition: 0.6s ease;
+			  border-radius: 0 3px 3px 0;
+			  user-select: none;
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+			  right: 0;
+			  border-radius: 3px 0 0 3px;
+			}
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover, .next:hover {
+			  background-color: rgba(0,0,0,0.8);
+			}
+
+			.so1
+			{
+			   	background-color: white;
+			   	color: black;
+			}
+
+		</style>
+	</head>
+	<body class= "bg">
+		<div class="bg1">
+			<div>
+				<br><br><br><br>
+        <a href="{% url 'home' %}" class="a1">
+				<section class= "i1">
+					<pre><b><span>EVT</span><br><span>ElasticVelcroThread</span></b></pre><br>
+				</section>
+        </a>
+			</div>
+
+			<div class="i2">DETAILS</div>
+		</div>
+		<br>
+		<div class="w3-center">
+			<a href="{% url 'elastic' %}"><abbr title="ELASTIC"><button class="b1">E</button></abbr></a>
+			&nbsp;
+			<a href="{% url 'velcro' %}"><abbr title="VELCRO"><button class="b1">V</button></abbr></a>
+			&nbsp;
+			<a href="{% url 'thread' %}"><abbr title="THREAD"><button class="b1">T</button></abbr></a>
+		</div>
+		<br>
+		<hr class="hr" style="text-align: center;">
+		<br><br>
+		<div>
+        <form action="" method="post">
+          {% csrf_token %}
+
+
+		<div>
+				<table align="center" class="i6">
+		        	
+		        	<tr></tr>
+		        	<tr>
+		        		<td>
+		        			<div>
+				          		{% for message in messages %}
+				          		<h4 style="color: red; text-align: center;"><b> *{{message}}* </b></h4>
+				          		{% endfor %}
+				          	</div>
+		        		</td>
+		        	</tr>
+		            
+		          <tr>
+		            <td>
+		              <label for="oname">Organization Name:</label>
+		            </td>
+		            <td>
+		              <input type="text" name="oname" required="required" autofocus="autofocus" placeholder="ORGANIZATION NAME">
+		            </td>
+		            </tr>
+		            	
+		            <tr>
+		            <td>
+		              <label for="number">Phone Number:</label>
+		            </td>
+		            <td>
+		              <input type="text" name="number" required="required" placeholder="88XXXXXXX4" pattern="[0-9]{10}" required>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		              <label for="address">Address:</label>
+		            </td>
+		            <td colspan="3">
+		              <textarea name="address" required="required" style="width: 400px; height: 60px;" rows="2" wrap="hard" placeholder="ADDRESS"></textarea>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td colspan="4" rowspan="2" style="text-align: center;"><br>
+		              <input type="submit" value="PROCEED" style="box-shadow: 0 4px 8px 0 rgba(79, 75, 75, 0.6), 0 6px 20px 0 rgba(79, 75, 75, 0.19);">
+		            </td>
+		          </tr>
+		        </table>
+		</div>
+		<br>
+        </form>
+    </div>	
+		
+		<br><br>
+		<hr class="hr" style="text-align: center;">
+
+		<section class="i3">
+			<span>Elastic. Velcro. Thread.</span><br>
+			<abbr title="MASTERCARD"><i class="fab fa-cc-mastercard"></i></abbr>
+			<abbr title="VISA"><i class="fab fa-cc-visa"></i></abbr>
+			<abbr title="PAYPAL"><i class="fab fa-paypal"></i></abbr>
+			<abbr title="COD"><i class="fas fa-money-bill-wave"></i></abbr>
+		</section>
+
+		<script type="text/javascript">
+			function expand() 
+			{
+  				var x = document.getElementById("myMenu");
+  				if (x.style.display === "block") 
+  				{
+  					x.style.display = "none";
+				}
+				else 
+				{
+    				x.style.display = "block";
+  				}
+			}
+
+			
+		</script>
+	</body>
+</html>

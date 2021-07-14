@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>EVT - ELASTIC, VELCRO, THREAD</title>
+		<link rel="shortcut icon" href="{% static 'images/vet.ico' %}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.bg
+			{
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.bg1
+			{
+				background-image: url("https://drive.google.com/file/d/15baEaCHtMNQC7NmHwlhv4xyd-qZqIZAr/view?usp=sharing");
+				min-height: 600px;
+				background-size: cover;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-color: #2A2828;
+				color: #ffffff;			
+			}
+
+			.i1
+			{
+				text-align: center;
+				border: 2px solid #D6D0D0;
+				color: #D6D0D0;
+				font-size: 20px;
+				width: 230px;
+				height: 100px;
+				margin: auto;
+				padding: auto;
+			}
+
+			.i2
+			{
+				text-align: center;
+				font-size: 500%;
+				font-family: Impact, sans-serif;
+				background-color: rgba(214, 208, 208, 0.5);
+				width: 500px;
+				color: #ffffff;
+				margin: auto;	
+				margin-top: 70px;
+				border-radius: 150px 0px;
+			}	
+
+			.a1:active, .a1:hover, .a1:visited, .a1:link {
+				color: #D6D0D0;
+				text-decoration: none;
+			}
+
+			.i3
+			{
+				text-align: center;
+			}
+
+			.hr
+			{
+				width: 80%;
+				margin-left: auto;
+				margin-right: auto;
+				border-width: 2px;
+				border-color: #353434;
+			}
+
+			
+			.i4
+			{
+				padding: 0px;
+				margin: 0px;
+				margin-left: 20px;
+				line-height: 1.6;
+			}
+
+			.i5
+			{
+				color: #D6D0D0;
+			}
+
+    		.i7
+    		{
+    		 	display: flex; 
+    		    flex-direction: row;
+    		}
+
+    		.i7:before, .i7:after
+    		{
+    		 	content: ""; 
+    		    flex: 1 1; 
+    		    border-bottom: 2px solid #ffffff; 
+    		    margin: auto;
+    		}
+
+    		.vertical
+    		{
+    			border-left: 6px solid #353435;
+ 				height: auto;
+    		}
+
+    		.table1
+   			{
+    		  	width: 100%;
+    		  	text-align: left;
+    		}
+
+    		#checkout
+    		{
+    			display: none;
+    		}
+
+    		.i6
+      		{
+        		background-color: #000000;
+        		height: auto;
+        		margin: auto;
+        		padding: auto;
+        		text-align: left;
+        		padding: 30px;
+        		width: 70%;
+        		border: 1px white;
+      		}
+
+      		#payMethod, #aname, #anumber, #ano, #bn, #bname, #ti, #tid
+			{
+				display: none;
+			}
+
+			.textbox_background
+			{
+				background-color: transparent;
+				border: 0px;
+				color: #ffffff;
+				width: 100%;
+			}
+    	</style>
+    </head>
+    <body class="bg">
+    	<br><br>
+
+		<form method="" action="">
+          {% csrf_token %}
+		<table class="i6">
+			<tr>
+				<th colspan="2" style="color: #CCC8C8;">
+					Billing Details:
+				</th>
+				<th colspan="2"><hr style="width: 100%" class="hr"></th>
+			</tr>
+			<tr>
+				<td> </td>
+			</tr>
+			<tr>
+				<td class="vertical"></td>
+				<td style="font-weight: bold; color: #696565;" width="30%">Username:</td>
+				<td>
+					<input type="text" name="user" readonly="readonly" value="{{c.first_name}} {{c.last_name}}" class="textbox_background">
+				</td>
+			</tr>
+			<tr>
+				<td class="vertical"></td>
+				<td style="font-weight: bold; color: #696565;">Phone Number:</td>
+				<td><input type="text" name="unumber" readonly="readonly" value="{{profile.number}}" class="textbox_background"></td>
+			</tr>
+			<tr>
+				<td class="vertical"></td>
+				<td style="font-weight: bold; color: #696565;">Organisation name:</td>
+				<td><input type="text" name="uorganisationname" readonly="readonly" value="{{profile.oname}}" class="textbox_background"></td>
+			</tr>
+			<tr>
+				<td class="vertical"></td>
+				<td style="font-weight: bold; color: #696565;">User Email:</td>
+				<td><input type="text" name="uemailaddress" readonly="readonly" value="{{c.email}}" class="textbox_background"></td>
+			</tr>
+			<tr>
+				<td class="vertical"></td>
+				<td style="font-weight: bold; color: #696565;">Billing Address:</td>
+				<td><input type="text" name="uaddress" readonly="readonly" value="{{profile.address}}" class="textbox_background"></td>
+			</tr>
+		</table>
+		
+		<table class="i6" >
+			<tr>
+				<th colspan="2" style="color: #CCC8C8;">
+					Order Details:
+				</th>
+				<th colspan="4"><hr style="width: 100%" class="hr"></th>
+			</tr>
+				<tr style="font-weight: bold; color: #696565;">
+					<td colspan="2">
+						Product ID
+					</td>
+					<td colspan="2">
+						Product Name
+					</td>
+					<td>
+						Quantity 
+					</td>
+					<td>
+						Amount (Rs.)
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="vertical"></td>
+					<td>
+						{{ con.productcode }} - {{ con.productid }}
+					</td>
+					<td>
+						{{ con.productname }}
+					</td>
+					<td><span style="border-left: 3px solid #3C3B3C;"></span></td>
+					<td>
+						{{ con.productqty }} 
+					</td>
+					<td>
+						{{ con.productamount }}
+					</td>
+				</tr>
+		</table>
+
+		<table class="i6">
+			<tr>
+				<th style="color: #CCC8C8;" width="30%">
+					Payment Details:
+				</th>
+				<th width="70%">
+					<hr style="width: 100%" class="hr">
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<label style="color: #CCC8C8;">Payment Mode</label>
+				</td>
+				<td>
+					{{ con.paymentmethod}}
+				</td>
+			</tr>
+			<tr style="height: 20px"></tr>
+		</table>
+		</form>
+
+		<br><br>
+	</body>
+</html>
