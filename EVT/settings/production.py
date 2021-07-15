@@ -1,11 +1,11 @@
-from base import *
+from .base import *
 import os
 from dotenv import load_dotenv
 import random
 
 DEBUG = False
 
-dotenv_path=os.path.dirname(os.path.dirname(__file__),'.env')
+dotenv_path=os.path.join(os.path.dirname(os.path.dirname(__file__)),'.env')
 load_dotenv(dotenv_path)
 
 ALLOWED_HOSTS = ['65.2.118.3']
@@ -31,3 +31,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
 APPLICATION_EMAIL = 'Admin<mukuljindal1010@gmail.com'
 DEFAULT_FROM_EMAIL = 'Admin<mukuljindal1010@gmail.com'
+
+
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')

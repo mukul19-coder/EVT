@@ -1,10 +1,14 @@
 beautifulsoup4==4.9.1
+certifi==2021.5.30
+charset-normalizer==2.0.1
 cookies==2.2.1
 cssutils==1.0.2
 Django==2.0.7
+django-email-verification==0.1.0
 django-inlinecss==0.3.0
 easygui==0.98.1
 future==0.18.2
+idna==3.2
 mysql-client==0.0.1
 mysqlclient==2.0.1
 Pillow==7.2.0
@@ -12,5 +16,8 @@ PyMsgBox==1.0.8
 pynliner==0.8.0
 python-dotenv==0.18.0
 pytz==2020.1
+razorpay==1.2.0
+requests==2.26.0
 simplejson==3.17.2
 soupsieve==2.0.1
+urllib3==1.26.6
